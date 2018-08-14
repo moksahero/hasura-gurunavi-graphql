@@ -14,7 +14,6 @@ const createRestaurantDescriptionMutation = `mutation insert_restaurant_descript
   $gurunavi_id: String!,
   $lang: String!,
   $name: String,
-  $name_sub: String,
   $business_hour: String,
   $holiday: String,
   $access: String,
@@ -26,7 +25,6 @@ const createRestaurantDescriptionMutation = `mutation insert_restaurant_descript
         gurunavi_id: $gurunavi_id,
         lang: $lang,
         name: $name,
-        name_sub: $name_sub,
         business_hour: $business_hour,
         holiday: $holiday,
         access: $access,
@@ -38,7 +36,6 @@ const createRestaurantDescriptionMutation = `mutation insert_restaurant_descript
       returning {
       id
       name
-      name_sub
     }
   }
 }`
