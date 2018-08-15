@@ -10,7 +10,7 @@ const client = new Client({
 
 axios.get('https://api.gnavi.co.jp/RestSearchAPI/20150630/', {
   params: {
-    keyid: '[replace_with_keyid]',
+    keyid: 'd9fe2007e30dc6715326a6e94d18c6bc',
     format: 'json',
     areacode_l: 'AREAL2101'
   }
@@ -39,15 +39,22 @@ axios.get('https://api.gnavi.co.jp/RestSearchAPI/20150630/', {
         }
       }
     }`
-    
-    const restaurantDetails = {
-      gurunavi_id: value.id,
-      name: value.name,
-      name_kana: value.name_kana,
-      longitude: value.longitude,
-      latitude: value.latitude
-    }
 
-    await client.query(createRestaurant, restaurantDetails)
+    result.data.rest.forEach(async value => {
+      const restaurantDetails = {
+        gurunavi_id: value.id,
+        name: value.name,
+        name_kana: value.name_kana,
+        longitude: value.longitude,
+        latitude: value.latitude
+      }
+
+      console.log(restaurantDetails)
+
+      await client.query(createRestaurant, restaurantDetails)
+      .catch(error => {
+        console.log(JSON.stringify(error, null, 2))
+      })
+    })
+
   })
-})
