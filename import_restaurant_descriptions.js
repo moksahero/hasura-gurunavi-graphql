@@ -61,7 +61,7 @@ async function createRestaurantDescription() {
   langs.forEach(async lang => {
     const result = await axios.get('https://api.gnavi.co.jp/ForeignRestSearchAPI/20150630/', {
       params: {
-        keyid: '[replace with keyid]',
+        keyid: 'd9fe2007e30dc6715326a6e94d18c6bc',
         format: 'json',
         lang: lang,
         id: gurunavi_ids.join(",")
@@ -73,7 +73,6 @@ async function createRestaurantDescription() {
         gurunavi_id: restaurant.id,
         lang: lang,
         name: restaurant.name.name,
-        name_sub: restaurant.name.name_sub,
         business_hour: restaurant.business_hour,
         holiday: JSON.stringify(restaurant.holiday),
         access: restaurant.access,
