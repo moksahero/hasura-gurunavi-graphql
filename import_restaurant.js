@@ -10,7 +10,7 @@ const client = new Client({
 
 axios.get('https://api.gnavi.co.jp/RestSearchAPI/20150630/', {
   params: {
-    keyid: 'd9fe2007e30dc6715326a6e94d18c6bc',
+    keyid: '[replace with keyid]',
     format: 'json',
     areacode_l: 'AREAL2101'
   }
